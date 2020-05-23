@@ -1,23 +1,20 @@
-Code book
-This is the code book for tidy data set
+### Code book
+A code book that describes the variables, the data, and any transformations or work that I performed to clean up the data
 
-Variables Description
-Data read from project data files. For description of each data files, refer to README in the project folder.
-
-- feature_list - features.txt file
-- activity - activity_labels.txt file
-- subject_test - subject_test.txt file
-- x_test - X_test.txt
-- y_test - Y_test.txt
-- subject_train - subject_train.txt
-- x_train - train/X_train.txt
-- y_train -train/Y_train.txt
-
-Processing variables
-- y_test_label - match y_test labels with corresponding activities
-- tidy_test - binding test subject, test activity and test set
-- y_train_label - match y_train labels with corresponding activities
-- tidy_train - binding train subject, train activity and train set
-- tidy_set - merged test set and train set
-- tidy_mean_std - data set with only measurements on the mean and standard deviation for each measurement
-- tidy_avg - independent tidy data set with the average of each variable for each activity and each subject.
+### Variables Description
+- features <- features.txt : 561 rows, 2 columns
+(The features selected for this database come from the accelerometer and gyroscope 3-axial raw signals tAcc-XYZ and tGyro-XYZ.)
+- activities <- activity_labels.txt : 6 rows, 2 columns
+(List of activities performed when the corresponding measurements were taken and its codes (labels))
+- subject_test <- test/subject_test.txt : 2947 rows, 1 column
+(contains test data of 9/30 volunteer test subjects being observed)
+- x_test <- test/X_test.txt : 2947 rows, 561 columns
+(contains recorded features test data)
+- y_test <- test/y_test.txt : 2947 rows, 1 columns
+(contains test data of activities’code labels)
+- subject_train <- test/subject_train.txt : 7352 rows, 1 column
+(contains train data of 21/30 volunteer subjects being observed)
+- x_train <- test/X_train.txt : 7352 rows, 561 columns
+(contains recorded features train data)
+- y_train <- test/y_train.txt : 7352 rows, 1 columns
+(contains train data of activities’code labels)
