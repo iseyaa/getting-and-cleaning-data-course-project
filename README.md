@@ -5,15 +5,15 @@ This projects have files as below:
 - README.md:
     An overview of the data set and how it was created.
 
-- Tidy_data.txt:
-    A text contains the data set.
-
 - CodeBook.md:
-    A note to describe the contents of the data set
-  
-- Run_analysis.R:
-    R script to create the data set
+    A note to explain variables, data or works that I did to clean up
 
+- Run_analysis.R:
+    R script how to create the data set
+
+- Tidy_data.txt:
+    A data after the analysis
+    
 
 Data Source:
   http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones
