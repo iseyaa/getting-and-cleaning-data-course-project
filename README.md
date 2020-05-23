@@ -1,6 +1,6 @@
-Getting and Cleaning Data Course Project
+##Getting and Cleaning Data Course Project
 
-This projects have files as below:
+#This projects have files as below:
 
 - README.md:
     Explains how all of the scripts work and how they are connected
