@@ -4,14 +4,9 @@ library(dplyr)
 # Download dataset
 zipurl <- "https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip"
 zipfile <- "UCI HAR Dataset.zip"
-if (!file.exists(zipfile)){
-  download.file(zipurl, zipfile)
-}  
-
+if (!file.exists(zipfile)){download.file(zipurl, zipfile)}  
 datapath <- "UCI HAR Dataset"
-if (!file.exists(datapath)) { 
-  unzip(zipfile) 
-}
+if (!file.exists(datapath)) {unzip(zipfile)}
 
 # Read data
 features <- read.table("UCI HAR Dataset/features.txt", col.names = c("n","functions"))
@@ -25,17 +20,17 @@ x_test <- read.table("UCI HAR Dataset/test/X_test.txt", col.names = features$fun
 y_test <- read.table("UCI HAR Dataset/test/y_test.txt", col.names = "code")
 subject_test <- read.table("UCI HAR Dataset/test/subject_test.txt", col.names = "subject")
 
-# Merge data:
-mergetrain <- cbind(y_train, subject_train, x_train)
-mergetest <- cbind(y_test, subject_test, x_test)
-mergedata <- rbind(mergetrain, mergetest)
+# Merge data
+X <- rbind(x_train, x_test)
+Y <- rbind(y_train, y_test)
+Subject <- rbind(subject_train, subject_test)
+mergedata <- cbind(Subject, Y, X)
 
-# Tidy data
-tidydata <- mergedata %>% select(subject, code, contains("mean"), contains("std"))
-names(tidydata)[2] = "activity"
+tidy <- mergedata %>% select(subject, code, contains("mean"), contains("std"))
+tidy$code <- activities[tidy$code, 2]
+names(tidy)[2] = "activity"
 
-# Summary data
-summarydata <- tidydata %>%
+answer <- tidy %>%
     group_by(subject, activity) %>%
     summarise_all(funs(mean))
-write.table(summarydata, "summarydata.txt", row.name=FALSE)
+write.table(answer, "answer.txt", row.name=FALSE)
