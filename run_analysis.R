@@ -26,6 +26,7 @@ Y <- rbind(y_train, y_test)
 Subject <- rbind(subject_train, subject_test)
 mergedata <- cbind(Subject, Y, X)
 
+# Tidy data
 tidy <- mergedata %>% select(subject, code, contains("mean"), contains("std"))
 tidy$code <- activities[tidy$code, 2]
 names(tidy)[2] = "activity"
